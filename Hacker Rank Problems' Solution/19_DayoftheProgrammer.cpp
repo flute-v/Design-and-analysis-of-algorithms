@@ -14,7 +14,25 @@ string rtrim(const string &);
  */
 
 string dayOfProgrammer(int year) {
-
+   string s;
+   string y = to_string(year);
+    if(year<=1917)
+    {
+        if(year%4==0)
+            s="12.09."+y;
+        else 
+            s= "13.09."+y;
+    }
+    else if(year>=1919)
+    {
+        if((year%400==0) || (year%4==0 && year%100!=0))
+            s= "12.09."+y;
+        else 
+            s= "13.09."+y;
+    }
+    else if(year==1918)
+        s= "26.09.1918";
+    return s;    
 }
 
 int main()
